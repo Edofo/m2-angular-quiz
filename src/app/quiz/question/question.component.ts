@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from "../../shared/services/quiz.service";
 import { QuizContent } from 'src/types/quiz.type';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-question',
@@ -10,10 +11,15 @@ import { QuizContent } from 'src/types/quiz.type';
 export class QuestionComponent implements OnInit {
   quizContent: QuizContent[] = this.quizService.quizContent;
 
-  constructor(private readonly quizService: QuizService) { }
+  constructor(private readonly quizService: QuizService, private readonly router: Router, private readonly route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.quizService.getQuizContent();
+    const categoryId = this.route.snapshot.paramMap.get('categoryId');
+    if(!categoryId) {
+      this.router.navigate(['/']);
+      return;
+    }
+    this.quizService.getQuizContent(categoryId);
   }
 
   onAnswerSelected(answer: string, questionId: string) {

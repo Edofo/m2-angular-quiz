@@ -14,11 +14,14 @@ import { AnswerComponent } from './quiz/answer/answer.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { CategoryComponent } from './category/category.component';
+import { CategoryListComponent } from './category/list/category-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    CategoryComponent,
     HeaderComponent,
     FooterComponent,
     QuizComponent,
@@ -26,7 +29,8 @@ import { RegisterComponent } from './auth/register/register.component';
     QuestionComponent,
     AnswerComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CategoryListComponent,
   ],
   imports: [
     BrowserModule,

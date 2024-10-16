@@ -41,8 +41,8 @@ export class QuizService {
     this.playerAnswers.push({questionId, answer});
   }
 
-  getQuizContent() {
-    this.http.get<Question[]>(environment.apiUrl + '/questions').subscribe((questions) => {
+  getQuizContent(categoryId: string) {
+    this.http.get<Question[]>(environment.apiUrl + '/questions?categoryId=' + categoryId).subscribe((questions) => {
       for (const question of questions) {
         this.http.get<Answer[]>(environment.apiUrl + `/answers?questionId=${question.id}`).subscribe((answers) => {
           this.quizContent.push({

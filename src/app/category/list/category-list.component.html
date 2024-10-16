@@ -1,0 +1,11 @@
+<ul class="category_list">
+  <li
+    class="category_item"
+    *ngFor="let category of categoryDisplayList"
+    (click)="navigateToQuiz(category)"
+    tabindex="{{ category.id }}"
+    (keydown.enter)="navigateToQuiz(category)"
+  >
+    <p>{{ category.name }}</p>
+  </li>
+</ul>

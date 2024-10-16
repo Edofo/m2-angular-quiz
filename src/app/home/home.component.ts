@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     return this.playerName.length < 1;
   }
 
-  navigateToQuiz() {
-    this.router.navigate(['/quiz', this.playerName]);
+  navigateToQuizCategory() {
+    this.router.navigate(['/quiz/category', this.playerName]);
   }
 }

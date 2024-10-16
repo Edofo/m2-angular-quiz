@@ -1,0 +1,29 @@
+.category_list {
+  list-style: none;
+  padding: 0;
+
+  .category_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background-color: #f1f1f1;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #333;
+    }
+  }
+}

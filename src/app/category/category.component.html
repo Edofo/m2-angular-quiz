@@ -1,0 +1,35 @@
+<section>
+  <h2 class="category_title">Choisissez une catégorie, {{ playerName }}</h2>
+  <form action="">
+    <label for="category">Catégorie</label>
+    <div>
+      <input
+        type="text"
+        id="category"
+        name="category"
+        placeholder="Entrez une catégorie"
+        [(ngModel)]="categorySearch"
+        required
+      />
+      <button
+        class="category_clear-btn"
+        (click)="clearSearch()"
+        [disabled]="!categorySearch"
+      >
+        Reset
+      </button>
+    </div>
+    <button
+      class="category_quiz-btn btn--outline"
+      (click)="searchCategory()"
+      [disabled]="isCategorySearchFilled"
+    >
+      Rechercher
+    </button>
+  </form>
+
+  <app-category-list
+    [categoryDisplayList]="categoryDisplayList"
+    (categorySelected)="navigateToQuiz($event)"
+  ></app-category-list>
+</section>

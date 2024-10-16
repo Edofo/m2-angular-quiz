@@ -31,7 +31,6 @@ export class RegisterComponent implements OnInit {
       next: (data: any) => {
         if (data.error) return alert(data.error);
         this.authService.user = data.user
-        if (!this.authService.user) return;
         this.authService.saveUser();
         this.router.navigate(['/']);
       },
